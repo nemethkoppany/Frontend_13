@@ -13,7 +13,7 @@ console.log(autok.at(-1));
 
 console.log(autok.find((value)=>{return value == "BYD"}));
 // console.find((value)=>{return value == "Ferrari"}); //Undefined
-console.log(console.findIdnex((value)=>{return value == "Ford"}));
+console.log(autok.findIndex((value)=>{return value == "Ford"}));
 
 console.log(autok.includes("Audi"));
 console.log(autok.indexOf("Ford"));
@@ -84,4 +84,4 @@ ujSzamok = szamok.map(value => value * 2 + 1);
 console.log(ujSzamok);
 
 ujAutok = autok.map(value => value.substring(0,2) + " asd");
-console.osszead(ujAutok);
+console.log(osszead(ujAutok));
