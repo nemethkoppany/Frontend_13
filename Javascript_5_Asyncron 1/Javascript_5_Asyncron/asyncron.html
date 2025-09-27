@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function b(){
+            setTimeout(()=>{
+                console.log("B");
+            },1500);
+        }
+        
+        console.log("A");
+        b();
+        console.log("C");
+    </script>
+</body>
+</html>

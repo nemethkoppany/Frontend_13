@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        #zenek tr:nth-child(even) {
+            background-color: antiquewhite;
+        }
+        .cim{
+            cursor: pointer;
+
+        }
+        .cim:hover{
+            font-weight: 600;
+            background-color: lightgray;
+        }
+
+    </style>
+</head>
+<body>
+    <h1>iTunes zene kereső alkalmazás</h1>
+    
+    <div>
+        <h2>Mit keressünk?</h2>
+        <input type="text" id="input-zene">
+        <button id="btn-kereses">Keresés</button>
+    </div>
+
+    <div id="zene-lejatszo">
+        <audio id="lejatszo"></audio>
+    </div>
+
+
+    <table>
+        <thead>
+            <tr>
+                <th>Előadó</th>
+                <th>Zene címe</th>
+                <th>Kiadás éve</th>
+                <th>Zene típusa</th>
+                <th>Időtartam</th>
+            </tr>
+        </thead>
+        <tbody id= "zenek">
+            
+        </tbody>
+    </table>
+
+    <script src="./scripts.js"></script>
+</body>
+</html>

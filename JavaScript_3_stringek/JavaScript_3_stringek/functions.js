@@ -84,7 +84,7 @@ function helykitolto(value){
 }
 
 
-for(let i= 0; i> jellemzok.length;i++){
+for(let i= 0; i< jellemzok.length;i++){
     
 let adatok = jellemzok[i].split(";");
 

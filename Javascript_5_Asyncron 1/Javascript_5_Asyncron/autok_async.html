@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Autokereskedés</title>
+</head>
+<body>
+    <script>
+ 
+        function lekerdez(){
+            setTimeout(()=>{
+                const autokID = [23, 42, 59, 71, 90, 102];
+                console.log(autokID)
+ 
+                setTimeout((autoID)=> {
+                    const auto = {
+                        id: 59,
+                        marka: "Opel",
+                        tipus: "Corsa",
+                        rendszam: "RCF-123",
+                        evjarat: "2018",
+                        uzemanyag: "benzin",
+                       
+                    }
+                    console.log(auto)
+ 
+                    setTimeout(() => {
+                        const autok = [
+                           {
+                             id: 59,
+                        marka: "Opel",
+                        tipus: "Corsa",
+                        rendszam: "RCF-123",
+                        evjarat: 2018,
+                        uzemanyag: "benzin",
+                       
+                           },
+                           {
+                             id: 59,
+                        marka: "Opel",
+                        tipus: "Corsa",
+                        rendszam: "RAB-4456",
+                        evjarat: 2018,
+                        uzemanyag: "benzin",
+                       
+                           },
+ 
+                           {
+                             id: 59,
+                        marka: "Opel",
+                        tipus: "Corsa",
+                        rendszam: "PQR-753",
+                        evjarat: 2019,
+                        uzemanyag: "benzin",
+                       
+                           }
+ 
+                        ]
+ 
+                        console.log(autok)
+ 
+                        setTimeout((autoID) => {
+                            const auto =
+                                {
+                             id: 59,
+                        marka: "Opel",
+                        tipus: "Corsa",
+                        rendszam: "PQR-753",
+                        evjarat: 2019,
+                        uzemanyag: "benzin",
+                       
+                           }
+                           
+                        }, 1500);
+                    }, 2000);
+                }, 1800)
+            }, 1500)
+        }
+ 
+        lekerdez()
+ 
+    </script>
+</body>
+</html>

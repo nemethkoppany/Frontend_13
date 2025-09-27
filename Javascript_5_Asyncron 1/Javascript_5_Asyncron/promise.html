@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const lekerdez = new Promise( (result,reject)=>{
+            setTimeout(()=>{
+                const autokID = [23, 42, 59, 71, 90, 102];
+
+                if(Math.random() < 0.6){
+                    result(autokID);
+                }
+                
+                reject("Hiba van a működésben")
+
+            },1500)
+        } );
+
+            const autoLekerdez = function(autoID){
+                return new Promise((result, reject)=>{
+                    setTimeout((autokID)=>{
+                        const auto = {
+                            id: 59,
+                            marka: "Opel",
+                            tipus: "Corsa",
+                            rendszam: "RCF-123",
+                            evjarat: "2018",
+                            uzemanyag: "benzin",
+                           
+                        };
+
+                        if(Math.random() < 0.8){
+                            result(auto);
+                        }
+                        reject("Nem található a megadott azonosítóval autó!")
+                    },1800)
+                });
+            }
+
+            const autoByTipus = (tipus) => new Promise((resolve, reject) =>{
+                setTimeout(()=>{
+                    const autok = [
+                           {
+                             id: 59,
+                        marka: "Opel",
+                        tipus: "Corsa",
+                        rendszam: "RCF-123",
+                        evjarat: 2018,
+                        uzemanyag: "benzin",
+                       
+                           },
+                           {
+                             id: 59,
+                        marka: "Opel",
+                        tipus: "Corsa",
+                        rendszam: "RAB-4456",
+                        evjarat: 2018,
+                        uzemanyag: "benzin",
+                       
+                           },
+ 
+                           {
+                             id: 59,
+                        marka: "Opel",
+                        tipus: "Corsa",
+                        rendszam: "PQR-753",
+                        evjarat: 2019,
+                        uzemanyag: "benzin",
+                       
+                           }
+ 
+                        ];
+
+                        if(Math.random() < 0.8){
+                            resolve(autok);
+                        }
+                        reject("Ebben a kategóriában nincs autó");
+                },2000)
+            });
+
+            const autoKivalasz = () => new Promise((result, reject)=>{
+                const auto =
+                                {
+                             id: 59,
+                        marka: "Opel",
+                        tipus: "Corsa",
+                        rendszam: "PQR-753",
+                        evjarat: 2019,
+                        uzemanyag: "benzin",
+                                }
+
+                                if(Math.random() < 0.8){
+                                    result(auto);
+                                }
+                                reject("Valami nem helyes")
+            })
+
+
+            console.log(lekerdez);
+        lekerdez
+        .then((autokID)=>{
+            console.log(autokID);
+            return autoLekerdez(autokID[2]);
+        })
+        .then(()=>{
+            console.log(auto);
+            return autoByTipus(auto.tipus);
+        })
+        .then((autok)=>{
+            console.log(autok);
+        })
+        .catch((error)=>{
+            console.log(error);
+        })
+        .finally(()=>{
+            console.log("Ez mindenképpen lefut")
+        })
+    </script>
+</body>
+</html>
