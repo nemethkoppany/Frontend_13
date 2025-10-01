@@ -22,6 +22,9 @@ fetch(url)
         const tipusok = datas.types.map(t => t.type.name).join(", ");
 
         const div = document.getElementById("eredmeny");
+        div.style.display = "block";
+        div.style.background = `linear-gradient(135deg, #feffa3, #dbdcff)`
+        div.id = "eredmeny";
         div.innerHTML = "";
 
         const nev = document.createElement("h3");
@@ -52,6 +55,11 @@ fetch(url)
         const tipusElem = document.createElement("p");
         tipusElem.textContent = `Típus(ok): ${tipusok}`;
         div.appendChild(tipusElem);
+        
+        nev.style.textAlign = `center`;
+        kep.style.margin = `auto`;
+        kep.style.display = `block`;
+        kep.style.width = `150px`
     })
    .catch(error => {
     const div = document.getElementById("eredmeny");
