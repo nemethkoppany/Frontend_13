@@ -1,0 +1,41 @@
+body{
+    background-color:#F5F5F5;
+    align-items: center;
+    text-align: center;
+}
+p{
+    border: 1px solid black;
+    border-radius: 10px;
+    text-align: center;
+    background-color: beige;
+}
+
+#eredmeny{
+    margin: auto;
+    padding: 10px;
+    max-width:450px;
+    text-align: center;
+}
+
+img{
+    justify-content: center;
+}
+
+h2,h1{
+    text-align: center;
+}
+
+#kereses{
+    background-color: #90D5FF;
+    border: none;
+    padding: 10px 12px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#varos{
+    border: 1px solid #75b4e3;
+    border-radius: 5px;
+    background-color: #75b4e3;
+    padding: 8px 10px;
+}
