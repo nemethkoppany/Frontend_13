@@ -1,0 +1,31 @@
+nav {
+  flex: 30%;
+  background-color: blanchedalmond;
+  padding: 20px;
+}
+
+nav ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+nav ul li {
+  margin: 15px;
+}
+
+nav ul li a {
+  text-decoration: none;
+  background-color: brown;
+  color: whitesmoke;
+  display: block;
+  width: 250px;
+  padding: 10px 20px;
+  font-size: 20px;
+  border: 2px solid brown;
+  font-weight: 600;
+}
+
+nav ul li a:hover {
+  background-color: rgb(240, 210, 176);
+  color: brown;
+}

@@ -1,0 +1,11 @@
+header {
+  background-color: darkslateblue;
+  color: whitesmoke;
+  padding: 60px;
+  text-align: center;
+}
+
+header p {
+  font-style: italic;
+  font-size: 18px;
+}
