@@ -1,0 +1,30 @@
+.layout {
+  display: flex;
+  gap: 30px;
+  align-items: flex-start;
+  margin-top: 20px;
+}
+
+
+.list-column {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.card {
+  background: #07bbdb;
+  padding: 15px;
+  border-radius: 10px;
+  width: 220px;
+}
+
+.form-card {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+button {
+  cursor: pointer;
+}
