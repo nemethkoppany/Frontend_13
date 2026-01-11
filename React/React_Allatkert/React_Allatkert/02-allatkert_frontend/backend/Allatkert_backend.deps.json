@@ -1,0 +1,23 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v8.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v8.0": {
+      "Allatkert_backend/1.0.0": {
+        "runtime": {
+          "Allatkert_backend.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "Allatkert_backend/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}
