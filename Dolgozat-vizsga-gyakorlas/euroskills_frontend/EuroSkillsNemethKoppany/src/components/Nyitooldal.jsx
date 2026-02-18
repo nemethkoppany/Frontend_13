@@ -1,8 +1,11 @@
 import kep from "../../../forrasok/nyitokep.webp";
 import { Link } from "react-router-dom";
-const token = localStorage.getItem("token");
+import { useState } from "react";
 
 export default function Nyitooldal() {
+
+const [token, setToken] = useState(()=>localStorage.getItem("token"))
+
   return (
     <div>
       <div>
@@ -70,7 +73,7 @@ export default function Nyitooldal() {
               className="btn btn-danger"
               onClick={() => {
                 localStorage.removeItem("token");
-                window.location.reload();
+                setToken(null);
               }}
             >
               Kijelentkezés
