@@ -1,0 +1,30 @@
+:host {
+    display: inline-block;
+    width: 40%;
+    box-sizing: border-box;
+    vertical-align: top;
+    background-color: #84B179;
+    min-height: 300px;
+    padding: 10px;
+}
+#wow-btn{
+    background-color: rgb(253, 251, 93);
+    border:  solid black 2px;
+    border-radius: 10px;
+    padding: 3px;
+    text-decoration: none;
+    color: black;
+}
+#angular-btn{
+    background-color: rgb(233, 132, 49);
+    border:  solid black 2px;
+    border-radius: 10px;
+    padding: 3px;
+    text-decoration: none;
+    color: black;
+}
+
+.btn-class a{
+    display: inline-block;
+    margin-right: 10px;
+}

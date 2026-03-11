@@ -1,0 +1,8 @@
+:host {
+    display: inline-block;
+    width: 60%;
+    box-sizing: border-box;
+    background-color: #6dbfdd;
+    min-height: 300px;
+    padding: 10px;
+}
