@@ -1,0 +1,23 @@
+<section id="tasks">
+    <header>
+        <h2>{{userName()}}'s Tasks</h2>
+        <menu>
+            <button>New Task</button>
+        </menu>
+    </header>
+    @if(userTasks().length >0){
+        <ul>
+        
+            @for(task of userTasks(); track task.id){
+                <li>
+                    <app-task [task]="task" (delete)="onDelete($event)"></app-task>
+                </li>
+            }
+        
+    </ul>
+    }
+    @else{
+        <p>{{userName()}} has no tasks</p>
+    }
+    
+</section>

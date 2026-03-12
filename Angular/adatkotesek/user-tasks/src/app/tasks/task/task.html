@@ -1,0 +1,8 @@
+<article>
+    <h2>{{task().title | uppercase}}</h2>
+    <time >{{task().dueDate | date: 'yyyy.MM.dd. (EE)'}}</time>
+    <p>{{task().summary}}</p>
+    <div class="actions">
+        <button (click)="onDelete()">Complete</button>
+    </div>
+</article>

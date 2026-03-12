@@ -1,5 +1,7 @@
 import { Component, computed, EventEmitter, input, Input, output, Output, signal } from '@angular/core';
 import { DUMMY_USERS } from '../dummy-users';
+import {IUser} from "./user-model";
+
 
 @Component({
   selector: 'app-user',
@@ -22,15 +24,13 @@ export class User {
   // }
 
   //signal
-  id = input.required<string>();
-  avatar = input.required<string>();
-  name = input.required<string>();
+  user = input.required<IUser>();
   select = output<string>();
 
-  imagePath = computed(()=> "users/" + this.avatar());
+  imagePath = computed(()=> "users/" + this.user().avatar);
  
   onSelectUser(){
-    this.select.emit(this.id());
+    this.select.emit(this.user().id);
   }
 
   
