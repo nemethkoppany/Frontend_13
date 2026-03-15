@@ -1,8 +1,13 @@
+@if (newTaskVisible()) {
+  <app-new-task (close)="onDisableNewTask()" (create)="onCreateNewTask($event)" />
+}
+
+
 <section id="tasks">
     <header>
         <h2>{{userName()}}'s Tasks</h2>
         <menu>
-            <button>New Task</button>
+            <button (click)="onEnableNewTask()">New Task</button>
         </menu>
     </header>
     @if(userTasks().length >0){
