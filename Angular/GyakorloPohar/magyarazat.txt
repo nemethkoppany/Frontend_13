@@ -1,0 +1,113 @@
+========================================
+ANGULAR POHAR PROJEKT - RÉSZLETES MAGYARÁZAT
+========================================
+
+----------------------------------------------------------------
+app.ts
+----------------------------------------------------------------
+
+import { Component, signal, inject } from '@angular/core';
+  -> Importáljuk az Angular alap eszközeit: Component a dekorátor,
+     signal a reaktív változókhoz, inject a szolgáltatások bekéréséhez.
+
+import { Pohar } from './pohar/pohar';
+import { UjPohar } from './uj-pohar/uj-pohar';
+  -> Behozzuk a két komponenst, hogy a template-ben tudjuk használni őket.
+
+imports: [RouterOutlet, Pohar, UjPohar],
+  -> Regisztráljuk a komponenseket – enélkül az Angular nem ismeri fel
+     az <app-pohar> és <app-uj-pohar> tageket a HTML-ben.
+
+poharService = inject(PoharService);
+  -> A szolgáltatást injektáljuk, hogy a template hozzáférjen
+     a listaz() metódushoz.
+
+
+----------------------------------------------------------------
+app.html
+----------------------------------------------------------------
+
+<app-uj-pohar></app-uj-pohar>
+  -> (9. feladat) Elhelyezzük az uj-pohar komponenst egyszer,
+     és mindig látszik.
+
+@for (p of poharService.listaz(); track p.id) {
+  <app-pohar [pohar]="p"></app-pohar>
+}
+  -> (6. feladat) A @for végigmegy a listaz() által visszaadott tömbön.
+     Mivel a poharService.pohar egy signal, az Angular automatikusan
+     figyeli – ha a tömb változik (törlés vagy hozzáadás), a lista
+     azonnal frissül. A track p.id megmondja az Angularnak, melyik elem
+     melyik, hogy hatékonyan tudja frissíteni a DOM-ot.
+
+
+----------------------------------------------------------------
+pohar.html – (7. feladat)
+----------------------------------------------------------------
+
+<button (click)="torol()">Törlés</button>
+  -> A gomb kattintásra meghívja a torol() metódust a komponensben.
+
+
+----------------------------------------------------------------
+pohar.ts – torol() metódus
+----------------------------------------------------------------
+
+torol() {
+  this.service.torol(this.pohar.id);
+}
+  -> Átadja a saját pohárjának id-ját a szolgáltatásnak, ami kiszűri
+     azt a signal-tömbből. A @for ezt azonnal észleli és eltávolítja
+     a kártyát a felületről.
+
+
+----------------------------------------------------------------
+uj-pohar.ts
+----------------------------------------------------------------
+
+import { FormsModule } from '@angular/forms';
+  -> A FormsModule kell az [(ngModel)] kétirányú adatkötéshez.
+
+fajta: string = '';
+szin: string = '';
+fules: boolean = false;
+  -> Ezek az űrlap mezőinek "tárolói" a komponensben.
+     Az ngModel ezekhez köti a beviteli mezőket.
+
+const ujPohar: IPohar = {
+  id: Date.now(),
+  -> Az id-t Date.now()-val generáljuk – ez az aktuális időpont
+     milliszekundumban, így mindig egyedi szám lesz.
+
+  fajta: this.fajta,
+  szin: this.szin,
+  fules: this.fules,
+};
+  -> Összecsomagoljuk a mezők értékeit egy IPohar objektumba.
+
+this.poharService.felvesz(ujPohar);
+  -> (10. feladat) Meghívjuk a szolgáltatás felvesz() metódusát,
+     ami a signalba beleteszi az új poharat. A @for automatikusan
+     megjelenik az új elemmel.
+
+this.fajta = '';
+this.szin = '';
+this.fules = false;
+  -> Mentés után kiürítjük az űrlapot, hogy lehessen újat felvenni.
+
+
+----------------------------------------------------------------
+uj-pohar.html
+----------------------------------------------------------------
+
+<input type="text" [(ngModel)]="fajta" />
+  -> A [(ngModel)] kétirányú kötés: ha a felhasználó gépel, a fajta
+     változó frissül; ha a kódból változtatjuk (pl. törléskor ''-re
+     állítjuk), a mező kiürül.
+
+<input type="checkbox" [(ngModel)]="fules" />
+  -> Ugyanez, csak boolean értékkel – bejelölve true, üresen false.
+
+<button (click)="ment()">Mentés</button>
+  -> (8. feladat) A gomb meghívja a ment() metódust,
+     ami elvégzi a felvételt.

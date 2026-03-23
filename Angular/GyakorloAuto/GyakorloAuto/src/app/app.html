@@ -1,0 +1,5 @@
+<h1>{{title()}}</h1>
+<app-uj-auto></app-uj-auto>
+@for(a of autoservice.listaz();track $index; let index = $index){
+  <app-auto [auto]="a" [index]="index"></app-auto>
+}

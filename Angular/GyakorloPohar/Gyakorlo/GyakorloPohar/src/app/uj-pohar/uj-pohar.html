@@ -1,0 +1,17 @@
+<div>
+  <h2>Új pohár hozzáadása</h2>
+
+  <label>Fajta:
+    <input type="text" [(ngModel)]="fajta" />
+  </label>
+
+  <label>Szín:
+    <input type="text" [(ngModel)]="szin" />
+  </label>
+
+  <label>Füles:
+    <input type="checkbox" [(ngModel)]="fules" />
+  </label>
+
+  <button (click)="ment()">Mentés</button>
+</div>
