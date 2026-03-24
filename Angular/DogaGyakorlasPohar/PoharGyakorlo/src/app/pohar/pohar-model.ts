@@ -1,6 +1,6 @@
 export interface IPohar{
-    id:Number,
-    fajta:String,
-    szin: String,
-    fules:Boolean
+    id:number,
+    fajta:string,
+    szin: string,
+    fules:boolean
 }
