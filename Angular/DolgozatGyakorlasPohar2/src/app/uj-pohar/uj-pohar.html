@@ -1,0 +1,17 @@
+<div>
+    <h2>Új pohár</h2>
+
+    <label for="fajta">Fajta:</label>
+    <input type="text" [(ngModel)] = "fajta">
+
+    
+  <label>Szín:
+    <input type="text" [(ngModel)]="szin" />
+  </label>
+
+  <label>Füles:
+    <input type="checkbox" [(ngModel)]="fules" />
+  </label>
+
+  <button (click)="mentes()">Mentés</button>
+</div>
