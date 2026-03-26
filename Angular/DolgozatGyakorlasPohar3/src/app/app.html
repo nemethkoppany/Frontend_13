@@ -1,0 +1,8 @@
+<div>
+  <h1>{{title()}}</h1>
+
+  @for(p of poharService.listaz();track p.id){
+    <app-pohar [pohar]="p"></app-pohar>
+  }
+
+</div>
