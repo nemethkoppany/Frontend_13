@@ -3,6 +3,7 @@ import { useEffect,useState } from "react"
 export default function Eredmenyek(){
     const [versenyzok,setVersenyzok] = useState([])
     const [hiba,setHiba] = useState([]);
+    const token = localStorage.getItem("token")
 
     useEffect(()=>{
         fetch("http://localhost:3000/versenyzok")
@@ -21,6 +22,18 @@ export default function Eredmenyek(){
         .catch((err)=>setHiba(err.message))
 
     },[])
+
+    function handleDelete(id){
+        fetch(`http://localhost:3000/versenyzok/${id}`,{
+            method:"DELETE",
+            headers:{Authorization:`Bearer ${token}`}
+        })
+        .then((res)=>{
+            if(!res.ok) throw new Error(res.message)
+            setVersenyzok(versenyzok.filter((v)=>v.id !== id))
+        })
+        .catch((err)=>{setHiba(err.message)})
+    }
     
     
     return(
@@ -34,6 +47,7 @@ export default function Eredmenyek(){
                             <th>Név</th>
                             <th>Ország</th>
                             <th>Pontszám</th>
+                            {token && <th>Törlés</th>}
                         </tr>
                     </thead>
                     <tbody>
@@ -43,6 +57,7 @@ export default function Eredmenyek(){
                                 <td>{v.nev}</td>
                                 <td>{v.orszagNev}</td>
                                 <td>{v.pont}</td>
+                                {token && <td> <button onClick={()=>{handleDelete(v.id)}} className="btn btn-danger btn-sm">Törlés</button></td>}
                             </tr>
                         ))}
                     </tbody>

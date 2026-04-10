@@ -1,7 +1,10 @@
 import { Link } from "react-router";
 import kep from "../../forrasok/nyitokep.webp";
+import { useState } from "react";
 
 export default function Nyitooldal() {
+
+  const [token, setToken] = useState(()=>(localStorage.getItem("token")));
   return (
     <div className="container my-4">
       <h1 className="text-center fw-bold">EuroSkills Budapest 2018</h1>
@@ -56,7 +59,9 @@ export default function Nyitooldal() {
         </strong>
       </h2>
 
-      <Link to="/login" className="btn btn-success">Bejelentkezés</Link>
+
+      {token ? (<button className="btn btn-danger" onClick={()=>{localStorage.removeItem("token");setToken(null)}}>Kijelentkezés</button>) : (<Link to="/login" className="btn btn-success">Bejelentkezés</Link>)}
+      
       <Link to="/eredmenyek" className="btn btn-primary">További eredmények</Link>
     </div>
   );
