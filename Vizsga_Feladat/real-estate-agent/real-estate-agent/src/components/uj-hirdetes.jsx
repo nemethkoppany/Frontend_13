@@ -63,7 +63,8 @@ export default function UjHirdetes() {
   function onSave(event) {
     event.preventDefault();
     const ujHirdetes = {
-      kategoriaId: kategoriaRef.current.value,
+      id: 0,
+      kategoriaId: Number(kategoriaRef.current.value),
       hirdetesDatuma: datum,
       leiras: leirasRef.current.value,
       tehermentes: tehermentesRef.current.checked,
@@ -75,7 +76,7 @@ export default function UjHirdetes() {
     fetch("http://localhost:5000/api/ujingatlan", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify([ujHirdetes]),
+      body: JSON.stringify(ujHirdetes),
     })
       .then((res) => {
         if (!res.ok) {
@@ -86,7 +87,7 @@ export default function UjHirdetes() {
         return res.json();
       })
       .then(() => {
-        navigate("/offers");
+        navigate("/hirdetesek");
       })
       .catch((err) => {
         setErr(`Hiba az új hirdetés felvétele közben ${err.message}`);
